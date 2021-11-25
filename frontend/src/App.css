@@ -1,223 +1,61 @@
-
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.img1{
-
-  background-color: #cccccc;
-}
-
-
- /** nav **/
- .nav{
+/** nav **/
+.nav {
   font-size: 16px;
   background-color: #ffffffb0;
-  color: #1F7176;
+  color: #1f7176;
   align-items: center;
   display: flex;
   justify-content: space-around;
   flex-wrap: nowrap;
-  min-width: 100% ;
+  min-width: 100%;
   max-width: 100%;
+  overflow-x: hidden;
   position: fixed;
   width: 360px;
+  z-index: 900;
 }
 
-.navbar-brand{
+.navbar-brand {
   margin: 0;
 }
 
-.nav-container-items{
+.nav-container-items {
   padding: 0;
   display: flex;
   justify-content: space-around;
   max-width: 100%;
 }
 
-.nav-link{
-  padding: .5em;
+.nav-link {
+  padding: 0.5em;
 }
 
-@media screen and (max-width: 340px){
-  .nav-link{
-    padding: .3em;
+/**MAS CHICO QUE MOBILE**/
+@media screen and (max-width: 340px) {
+  .nav-link {
+    padding: 0.3em;
     font-size: 12px;
   }
-  .navbar-brand{
-    padding: .3em;
+  .navbar-brand {
+    padding: 0.3em;
     font-size: 16px;
   }
-  .btn{
+  .btn {
     font-size: 12px;
   }
 }
 
-    /**CLINIC PAGE**/
+/**CLINIC PAGE**/
 
-  .operation2{
-    background-color: pink;
-    height:100vh;
-    
-  }
+.operation2 {
+  background-color: pink;
+  height: 100vh;
+}
 
-  .box2{
-    color: white;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    height:100vh;
-    
-    
-  }
-
-
-  /**DOCTORS PAGE**/
-
-  .dr3{
-    color: white;
-  }
-
-  .operation3{
-    background-color: rgb(0, 139, 98);
-    
-   
-  }
-
-  .dr3{
-    text-align: center;
-  }
-
-  .box3-1{
-    color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 15px;
-  }
-
-  
-  .box3-2{
-    color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-bottom: 5px;
-  }
-
-  .txt3{
-    margin: 15px;
-    font-size: 25px;
-  }
-
-  .heart3{
-    margin: 10px;
-  }
-
-  .btn3{
-    height: 40px;
-    width: 100px;
-    color: rgb(105, 63, 63);
-    background-color: brown;
-    border-radius: 5px;
-    border-style: none;
-    color: white;
-    margin-bottom: 10px;
-  }
-
-@media(min-width: 769px){
-
-  /**HOME PAGE**/
-
-  .operation2{
-    background-color: pink;
-    height:100vh;
-  }
-
-
-  .box2{
-    color: white;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    height:100vh;
-  
-  }
-
-  .operation3{
-    background-color: rgb(0, 139, 98);
-    
-   
-  }
-
-  .dr3{
-    text-align: center;
-    color: white;
-  }
-
-  
-  .box3-1{
-    color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 15px;
-    font-size: 30px;
-  }
-
-  
-  .box3-2{
-    color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-bottom: 5px;
-  }
-
-  .txt3{
-    margin: 30px;
-    width: 450px;
-  }
-
-  .btn3{
-    height: 40px;
-    width: 100px;
-    color: rgb(105, 63, 63);
-    background-color: brown;
-    border-radius: 5px;
-    border-style: none;
-    color: white;
-    margin-bottom: 10px;
-  }
-
-
+.box2 {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 100vh;
 }

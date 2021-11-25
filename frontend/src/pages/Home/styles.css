@@ -6,8 +6,8 @@
   background-image: url("../../images/banner.png");
   background-position: 60% 0;
   background-repeat: no-repeat;
-  background-size: cover;
-  height: 100vh;
+  background-size: 100% 1fr;
+  min-height: 100vh;
   overflow-x: hidden;
   width: 1fr;
 }
