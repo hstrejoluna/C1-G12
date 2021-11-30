@@ -1,0 +1,34 @@
+.Login-Page{
+  color: #1F7176;
+  padding: 60px 1em;
+  text-align: center;
+  min-height: 100vh;
+}
+.Login-Page > form{
+  align-items: flex-start;
+  color: rgb(197, 16, 103);
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  gap: 1em;
+  height: 80vh;
+  justify-content: flex-start;
+  padding: 3em 1em;
+}
+
+.Login-Page > form > button{
+  align-self: center;
+}
+
+.Login-Page > form > input{
+  color: #1F7176 ;
+  border: none;
+  width: 100%;
+  border-radius: 11px;
+  padding: .5em;
+  background-color: #d9d9d97c;
+}
+
+.error-message{
+  align-self: center ;
+}

@@ -54,10 +54,14 @@
 }
 
 .button {
-  background-color: #c51067;
+  background-color: rgb(197, 16, 103);
   border-radius: 6px;
   border-style: none;
   color: white;
   height: 33px;
   width: 123px;
+}
+
+.button[disabled]{
+  opacity: .3;
 }
