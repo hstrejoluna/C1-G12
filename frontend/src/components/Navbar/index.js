@@ -12,10 +12,10 @@ function Navbar() {
           Home
         </Link>
         <Link className="nav-item nav-link" to="/Doctors">
-          Doctores
+          Doctors
         </Link>
-        <Link className="nav-item nav-link" to="/Clinic">
-          Clinica
+        <Link className="nav-item nav-link" to="/About">
+          About
         </Link>
       </ul>
       <Link className="btn btn-outline-success" to="/Login">

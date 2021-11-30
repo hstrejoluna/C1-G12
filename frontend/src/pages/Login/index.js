@@ -66,7 +66,7 @@ export default function LoginPage() {
               Enviar
             </button>
             {console.log(errors)}
-            <ErrorMessage name="all" component="small"></ErrorMessage>
+            <ErrorMessage name="all" component="small" />
           </Form>
         )}
       </Formik>

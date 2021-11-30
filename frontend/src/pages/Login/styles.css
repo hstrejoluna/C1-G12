@@ -6,7 +6,7 @@
 }
 .Login-Page > form{
   align-items: flex-start;
-  color: rgb(197, 16, 103);
+  color: #C51067;
   display: flex;
   flex-direction: column;
   font-size: 18px;
@@ -29,6 +29,6 @@
   background-color: #d9d9d97c;
 }
 
-.error-message{
+.Login-Page > form > small{
   align-self: center ;
 }

@@ -60,6 +60,9 @@
   color: white;
   height: 33px;
   width: 123px;
+  text-decoration: none;
+  text-align: center;
+  padding: .25em 0;
 }
 
 .button[disabled]{
