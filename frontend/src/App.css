@@ -1,0 +1,61 @@
+/** nav **/
+.nav {
+  font-size: 16px;
+  background-color: #ffffffb0;
+  color: #1f7176;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  min-width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  position: fixed;
+  width: 360px;
+  z-index: 900;
+}
+
+.navbar-brand {
+  margin: 0;
+}
+
+.nav-container-items {
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+  max-width: 100%;
+}
+
+.nav-link {
+  padding: 0.5em;
+}
+
+/**MAS CHICO QUE MOBILE**/
+@media screen and (max-width: 340px) {
+  .nav-link {
+    padding: 0.3em;
+    font-size: 12px;
+  }
+  .navbar-brand {
+    padding: 0.3em;
+    font-size: 16px;
+  }
+  .btn {
+    font-size: 12px;
+  }
+}
+
+/**CLINIC PAGE**/
+
+.operation2 {
+  background-color: pink;
+  height: 100vh;
+}
+
+.box2 {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 100vh;
+}

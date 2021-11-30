@@ -1,0 +1,41 @@
+.OurDoctors{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  gap: 1em;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 60px 0;
+  background-color: #1F7176;
+}
+
+.list-turns > figure > h2, .OurDoctors > h2{
+  margin: 0;
+  max-width: 90%;
+  text-align: center;
+} 
+
+.OurDoctors > h2 {
+  color: #FFFF;
+  text-transform: uppercase;
+  margin: .8em;
+}
+
+.list-turns{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr) ;
+  gap: 10px;
+}
+
+.list-turns > figure{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: #FFFF;
+  width: 154px;
+  height: 124px;
+  min-height: 100%;
+  border-radius: 3px;
+  box-shadow: 3px 2px 10px 0 rgba(0, 0, 0, 0.452);
+}
