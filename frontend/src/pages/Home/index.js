@@ -1,6 +1,7 @@
 import React from 'react'
 import './styles.css'
 import {Icon} from '@iconify/react'
+import Bot from '../../components/Bot'
 
 function Home() {
     return (
@@ -15,6 +16,7 @@ function Home() {
                     <li><Icon icon='medical-icon:i-laboratory' /></li>
                     <li><Icon icon='fluent:heart-pulse-20-filled' /></li>
                 </ul>
+                <Bot/>
                 <button className="button">
                     read more
                 </button>
