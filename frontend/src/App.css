@@ -48,26 +48,38 @@
 /**CLINIC PAGE**/
 
 .operation2 {
-  
+  font-weight: 600;
+  padding: 60px 0;
   height: 100vh;
-  background-size: 100%;
-  background-image: url("https://media-exp1.licdn.com/dms/image/C4D1BAQHnssXErJjO8w/company-background_10000/0/1544018162599?e=2159024400&v=beta&t=UD0v8dRp_unjJVuRAJ_GgGBK80ExnkKsfScWsSPGevA");
+  background-size: cover;
+  background-position: 40% 0;
+  background-image: url("./images/doctor5 1.png");
   background-repeat: no-repeat;
-  box-shadow: inset 0 0 0 1000px rgba(255, 177, 177, 0.575);
-
-}
-
-.box2 {
+  box-shadow: inset 0 0 0 1000px #c5106875;
   color: white;
   display: flex;
   flex-direction: column;
   text-align: center;
-  height: 100vh;
+  align-items: center;
+  justify-content: center;
   margin: auto;
-
 }
 
-.titlewhy{
-  margin-top: 20%;
+.operation2 > h2 {
+  font-size: 36px;
+}
+
+.operation2 > p{
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.operation2 > span{
+  font-size: 46px;
+}
+
+.operation2 > *{
+  max-width: 90%;
 }
 

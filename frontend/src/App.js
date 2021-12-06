@@ -7,6 +7,7 @@ import Home from "./pages/Home"
 import Footer from "./components/Footer"
 import LoginPage from "./pages/Login"
 import DoctorsTurns from "./pages/DoctorsTurns"
+import Dashboard from "./pages/Dashboard"
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/About" exact component={About} />
           <Route path="/Login" exact component={LoginPage} />
           <Route path="/OurDoctors" exact component={DoctorsTurns} />
+          <Route path="/Dashboard" exact component={Dashboard} />
         </Switch>
         <Footer />
       </Router>

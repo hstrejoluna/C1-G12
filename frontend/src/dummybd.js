@@ -1,5 +1,6 @@
 export const users = [
   {
+    id: 1,
     name: "Admin",
     surname: "",
     email: "admin@clinic.com",
@@ -7,6 +8,7 @@ export const users = [
     type: "admin",
   },
   {
+    id: 2,
     name: "Peter",
     surname: "Parker",
     identy: "41121321",
@@ -20,6 +22,7 @@ export const users = [
     type: "pacient",
   },
   {
+    id: 3,
     name: "Harry",
     surname: "Potter",
     email: "harry@clinic.com",
@@ -29,6 +32,7 @@ export const users = [
     specialty: "General",
   },
   {
+    id: 4,
     name: "Mary",
     surname: "Jane",
     email: "mary@clinic.com",
@@ -38,6 +42,7 @@ export const users = [
     specialty: "Traumatologist",
   },
   {
+    id: 5,
     name: "John",
     surname: "Cena",
     email: "mary@clinic.com",
@@ -47,6 +52,7 @@ export const users = [
     specialty: "Dentist",
   },
   {
+    id: 6,
     name: "Harry",
     surname: "Osborn",
     email: "mary@clinic.com",
@@ -56,6 +62,7 @@ export const users = [
     specialty: "Oftalmologist",
   },
   {
+    id: 7,
     name: "Chakie",
     surname: "Chan",
     email: "mary@clinic.com",
@@ -65,6 +72,7 @@ export const users = [
     specialty: "General",
   },
   {
+    id: 8,
     name: "Jet",
     surname: "Lee",
     email: "mary@clinic.com",
@@ -72,5 +80,57 @@ export const users = [
     type: "doctor",
     active: 1,
     specialty: "Oftalmologist",
+  },
+]
+
+export const turns = [
+  {
+    id: 1,
+    date: "22/12/2021",
+    time: "14:30:00",
+    doctor: 8,
+    active: 1,
+  },
+  {
+    id: 2,
+    date: "22/12/2021",
+    time: "15:00:00",
+    doctor: 8,
+    active: 1,
+  },
+  {
+    id: 3,
+    date: "22/12/2021",
+    time: "15:30:00",
+    doctor: 8,
+    active: 1,
+  },
+  {
+    id: 4,
+    date: "22/12/2021",
+    time: "16:00:00",
+    doctor: 8,
+    active: 0,
+  },
+  {
+    id: 5,
+    date: "22/12/2021",
+    time: "14:30:00",
+    doctor: 7,
+    active: 1,
+  },
+  {
+    id: 6,
+    date: "22/12/2021",
+    time: "15:00:00",
+    doctor: 7,
+    active: 1,
+  },
+  {
+    id: 7,
+    date: "22/12/2021",
+    time: "15:30:00",
+    doctor: 7,
+    active: 1,
   },
 ]

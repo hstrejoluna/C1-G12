@@ -12,11 +12,11 @@ export default function DoctorsTurns() {
       <h2>doctors</h2>
       <section className="list-turns">
         {doctors.map((doctor) => (
-          <figure>
+          <figure key={doctor.id}>
             <h2>
               {doctor.name} {doctor.surname}
             </h2>
-            <span style={{ color: "#494747" }}>{doctor.specialty}</span>
+            <span>{doctor.specialty}</span>
             <Link to="/Turn" className="button">
               Take turn
             </Link>

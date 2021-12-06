@@ -28,6 +28,10 @@
   width: 330px;
 }
 
+.first-section-card > h4{
+  font-weight: 500;
+}
+
 .first-section-card-list {
   align-self: center;
   display: flex;
@@ -59,12 +63,18 @@
   border-style: none;
   color: white;
   height: 33px;
-  width: 123px;
-  text-decoration: none;
-  text-align: center;
   padding: .25em 0;
+  text-align: center;
+  text-decoration: none;
+  text-decoration-color: none;
+  width: 123px;
+  transition: background-color .25s ;
 }
 
 .button[disabled]{
   opacity: .3;
+}
+
+.button:hover{
+  background-color: rgb(173, 17, 93);
 }

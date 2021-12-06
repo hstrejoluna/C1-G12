@@ -3,13 +3,13 @@
 .third-section{
   align-items: center;
   background-color: #1F7176; 
-  display: flex;
   color: white;
+  display: flex;
   flex-direction: column;
-  min-height: 100vh; 
+  gap: 3em;
   justify-content: space-around;
+  min-height: 100vh; 
   padding: 60px 0;
-  gap:3em;
   text-align: center;
 }
 
@@ -21,20 +21,21 @@
   overflow-x: hidden;
 }
 
-.third-section-container > h4, h2 {
-  padding: 0;
+.third-section-container_container > h4, h2 {
   font-size: 24px;
+  font-weight: 500;
   overflow-x: hidden;
+  padding: 0;
 }
 
 .third-section-container_container{
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
   overflow: hidden;
+  padding: 3px;
   text-align: center;
   text-underline-position:above;
-  padding: 3px;
 }
 
 .third-section-container_container > img[alt="doctors"]{

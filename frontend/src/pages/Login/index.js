@@ -31,7 +31,7 @@ export default function LoginPage() {
             .then((res) => {
               console.log(res)
               if (res.err) return Promise.reject(res.err)
-              return history.push("/Admin")
+              return history.push("/Dashboard")
             })
             .catch((err) => {
               setFieldError("all", err)
@@ -46,7 +46,7 @@ export default function LoginPage() {
           if (!values.password) {
             errors.password = "password is required"
           } else if (values.password.length < 3) {
-            errors.email = "password length is better with more 3 characters"
+            errors.password = "password length is better with more 3 characters"
           }
           return errors
         }}
@@ -67,6 +67,8 @@ export default function LoginPage() {
             </button>
             {console.log(errors)}
             <ErrorMessage name="all" component="small" />
+            <ErrorMessage name="email" component="small" />
+            <ErrorMessage name="password" component="small" />
           </Form>
         )}
       </Formik>
