@@ -2,6 +2,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik"
 import { users } from "../../dummybd"
 import "./styles.css"
 import { useHistory } from "react-router-dom"
+import { useContext } from "react"
+import { UserContext } from "../../context/UserContext"
 
 async function login(email, password) {
   const user = await users.find((userIn) => userIn.email === email)
@@ -15,6 +17,7 @@ async function login(email, password) {
 }
 
 export default function LoginPage() {
+  const { isLogged, setIsLogged, userId, setUserId } = useContext(UserContext)
   const history = useHistory()
   return (
     <section className="Login-Page">
@@ -31,6 +34,9 @@ export default function LoginPage() {
             .then((res) => {
               console.log(res)
               if (res.err) return Promise.reject(res.err)
+              localStorage.setItem("userId", res.id)
+              setUserId(res.id)
+              setIsLogged(true)
               return history.push("/Dashboard")
             })
             .catch((err) => {
@@ -63,7 +69,7 @@ export default function LoginPage() {
             <label htmlFor="password">Password</label>
             <Field name="password" type="password" />
             <button className="button" type="submit" disabled={isSubmitting}>
-              Enviar
+              Login
             </button>
             {console.log(errors)}
             <ErrorMessage name="all" component="small" />

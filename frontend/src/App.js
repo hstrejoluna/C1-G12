@@ -9,23 +9,28 @@ import LoginPage from "./pages/Login"
 import DoctorsTurns from "./pages/DoctorsTurns"
 import Dashboard from "./pages/Dashboard"
 import Register from "./pages/Register"
+import UserContextProvider from "./context/UserContext"
+import ViewUser from "./pages/ViewUser"
 
 function App() {
   return (
     <>
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/Doctors" exact component={Doctors} />
-          <Route path="/About" exact component={About} />
-          <Route path="/Login" exact component={LoginPage} />
-          <Route path="/OurDoctors" exact component={DoctorsTurns} />
-          <Route path="/Register" exact component={Register} />
-          <Route path="/Dashboard" exact component={Dashboard} />
-        </Switch>
-        <Footer />
-      </Router>
+      <UserContextProvider>
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/Doctors" exact component={Doctors} />
+            <Route path="/About" exact component={About} />
+            <Route path="/Login" exact component={LoginPage} />
+            <Route path="/OurDoctors" exact component={DoctorsTurns} />
+            <Route path="/Register" exact component={Register} />
+            <Route path="/Dashboard" exact component={Dashboard} />
+            <Route path="/Dashboard/:userName" exact component={ViewUser} />
+          </Switch>
+          <Footer />
+        </Router>
+      </UserContextProvider>
     </>
   )
 }

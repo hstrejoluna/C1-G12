@@ -89,6 +89,7 @@ export const turns = [
     date: "22/12/2021",
     time: "14:30:00",
     doctor: 8,
+    pacient: 2,
     active: 1,
   },
   {
@@ -96,6 +97,7 @@ export const turns = [
     date: "22/12/2021",
     time: "15:00:00",
     doctor: 8,
+    pacient: 2,
     active: 1,
   },
   {
@@ -103,6 +105,7 @@ export const turns = [
     date: "22/12/2021",
     time: "15:30:00",
     doctor: 8,
+    pacient: 2,
     active: 1,
   },
   {
@@ -110,6 +113,7 @@ export const turns = [
     date: "22/12/2021",
     time: "16:00:00",
     doctor: 8,
+    pacient: 2,
     active: 0,
   },
   {
@@ -117,6 +121,7 @@ export const turns = [
     date: "22/12/2021",
     time: "14:30:00",
     doctor: 7,
+    pacient: 2,
     active: 1,
   },
   {
@@ -124,6 +129,7 @@ export const turns = [
     date: "22/12/2021",
     time: "15:00:00",
     doctor: 7,
+    pacient: 2,
     active: 1,
   },
   {
@@ -131,6 +137,7 @@ export const turns = [
     date: "22/12/2021",
     time: "15:30:00",
     doctor: 7,
+    pacient: 2,
     active: 1,
   },
 ]

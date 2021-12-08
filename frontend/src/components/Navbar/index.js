@@ -1,7 +1,9 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Link } from "react-router-dom"
+import { UserContext } from "../../context/UserContext"
 
 function Navbar() {
+  const { isLogged, setIsLogged, setUserId } = useContext(UserContext)
   return (
     <nav className="nav">
       <Link className="navbar-brand" to="/">
@@ -17,10 +19,28 @@ function Navbar() {
         <Link className="nav-item nav-link" to="/About">
           About
         </Link>
+        {isLogged && (
+          <Link className="nav-item nav-link" to="/Dashboard">
+            Dashboard
+          </Link>
+        )}
       </ul>
-      <Link className="btn btn-outline-success" to="/Login">
-        Login
-      </Link>
+      {!isLogged ? (
+        <Link className="btn btn-outline-success" to="/Login">
+          Login
+        </Link>
+      ) : (
+        <button
+          className="btn btn-outline-success"
+          onClick={() => {
+            localStorage.removeItem("userId")
+            setIsLogged(false)
+            setUserId("")
+          }}
+        >
+          Logout
+        </button>
+      )}
     </nav>
   )
 }
