@@ -11,6 +11,7 @@ import Dashboard from "./pages/Dashboard"
 import Register from "./pages/Register"
 import UserContextProvider from "./context/UserContext"
 import ViewUser from "./pages/ViewUser"
+import Turn from "./pages/Turn"
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
             <Route path="/Register" exact component={Register} />
             <Route path="/Dashboard" exact component={Dashboard} />
             <Route path="/Dashboard/:userName" exact component={ViewUser} />
+            <Route path="/Turn" component={Turn} />
+            
           </Switch>
           <Footer />
         </Router>
