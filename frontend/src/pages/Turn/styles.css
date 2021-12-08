@@ -1,0 +1,46 @@
+.turn{
+  padding: 60px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: #1F7176;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.turn > form {
+  font-weight: 600;
+  width: 90%;
+  color: #C51067;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1em;
+}
+
+.turn > form > input {
+  padding: .5em;
+  color: #1F7176;
+  border: none;
+  border-radius: 11px;
+  background-color: #d9d9d975;
+}
+
+.turn > form > select{
+  padding: .5em;
+  /* appearance: none; */
+  background-color: #d9d9d975;
+  color: #1F7176;
+  border: none;
+  border-radius: 11px;
+}
+
+.turn > form > select > option {
+  color: #1F7176;
+  background-color: #d9d9d975;
+}
+
+.turn > form > select > option:hover{
+  color: #FFFF;
+  background-color:  #1F7176;
+}

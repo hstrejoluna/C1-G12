@@ -1,130 +1,76 @@
-import React, {useState} from 'react'
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useContext, useState } from "react"
+import { Formik, Form, Field, ErrorMessage } from "formik"
 import "./styles.css"
+import { UserContext } from "../../context/UserContext"
+import { users } from "../../dummybd"
 
 export default function Turn() {
-    const [formularioEnviado, cambiarFormularioEnviado] = useState(false)
-    return (
-        <>
-            <h1 id="title" >Welcome To Turns</h1>
-            <Formik
-                initialValues={{
-                    fecha: '',
-                    hora: '',
-                    doctor: '',
-                    paciente: ''
-                    
-                }}
-                validate={(valores) => {
-                    let errores = {};
+  const { userId } = useContext(UserContext)
+  const [isSend, changeIsSend] = useState(false)
+  const [doctors, setDoctors] = useState(() => {
+    const doctorsFiltered = users.filter((user) => user.type === "doctor")
+    return doctorsFiltered
+  })
+  return (
+    <section className="turn">
+      <h1>Fill in the field and take a turn</h1>
+      <Formik
+        initialValues={{
+          date: "",
+          time: "",
+          doctor: "",
+          pacient: userId,
+        }}
+        validate={(values) => {
+          let errors = {}
 
-                    //validacion nombre
-                    if(!valores.doctor){
-                        errores.doctor = 'porfavor ingresa el nombre del doctor'
-                    } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.doctor)){
-                        errores.doctor = 'El nombre solo puede contener letras y espacios'
-                    }
-
-                    //validacion correo
-                    if(!valores.paciente){
-                        errores.paciente = 'porfavor ingresa el nombre del paciente'
-                    } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.paciente)){
-                        errores.paciente = 'El nombre solo puede contener letras y espacios'
-                    }
-
-                    //validacion hora
-                    if(!valores.hora){
-                        errores.hora = 'porfavor ingresa una hora'
-                    } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.hora)){
-                        errores.hora = 'Por favor ingresa una hora'
-                    }
-                 
-                    //validacion fecha
-                    if(!valores.fecha){
-                        errores.fecha = 'porfavor ingresa una fecha'
-                    } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.fecha)){
-                        errores.fecha = 'Por favor ingresa una fecha'
-                    }
-                    return errores;
-                    
-                }}
-                onSubmit={(valores, {resetForm}) => {
-                    resetForm();
-                    console.log('Formulario enviado'); 
-                    cambiarFormularioEnviado(true);  
-                    setTimeout(() => cambiarFormularioEnviado(false), 5000);
-
-                }}
-
-                
-            >
-            
-                {( {errors} ) => (
-                <Form className="formulario">
-                        
-                    <div>
-                        <label htmlFor="fecha">Fecha</label>
-                        <Field 
-                            type="date" 
-                            id="fecha" 
-                            name="fecha" 
-                            placeholder="DD/MM/YYYY" 
-
-                        />
-                            <ErrorMessage name="fecha" component={() => (
-                                <div className="error">{errors.fecha}</div>
-                            )} />
- 
-                    </div>
-                    <div>
-                        <label htmlFor="hora">Hora</label>
-                        <Field  
-                            type="number" 
-                            id="hora" 
-                            name="hora" 
-                            placeholder="HH/MM" 
-
-                        />
-                            <ErrorMessage name="hora" component={() => (
-                                <div className="error">{errors.hora}</div>
-                            )} />
- 
-                    </div>
-                    <div>
-                        <label htmlFor="paciente">Paciente</label>
-                        <Field  
-                            type="text" 
-                            id="paciente" 
-                            name="paciente" 
-                            placeholder="Nombre del paciente" 
-                            
-
-                            />
-                            <ErrorMessage name="paciente" component={() => (
-                                <div className="error">{errors.paciente}</div>
-                            )} />
-                            
-                    </div>
-                    <div>
-                        <label htmlFor="doctor">Doctor</label>
-                        <Field  
-                            type="text" 
-                            id="doctor" 
-                            name="doctor" 
-                            placeholder="Nombre del doctor" 
-                            
-                            />
-                            <ErrorMessage name="doctor" component={() => (
-                                <div className="error">{errors.doctor}</div>
-                            )} />
-                    </div>
-
-
-                    <button type="submit">Enviar</button>
-                    {formularioEnviado && <p className="exito">Formulario enviado con éxito!</p>}
-                </Form>
-                )}
-            </Formik>
-        </>
-    )
+          //validacion nombre
+          if (!values.doctor) {
+            errors.doctor = "Please select one doctor"
+          }
+          //validacion hora
+          if (!values.time) {
+            errors.time = "Please select one hour"
+          }
+          //validacion fecha
+          if (!values.date) {
+            errors.date = "Please select one date"
+          }
+          return errors
+        }}
+        onSubmit={(values, { resetForm }) => {
+          resetForm()
+          console.log(values)
+          changeIsSend(true)
+          setTimeout(() => changeIsSend(false), 5000)
+        }}
+      >
+        {({ errors }) => (
+          <Form className="formulario">
+            <label htmlFor="date">Date</label>
+            <Field type="date" name="date" />
+            <ErrorMessage name="date" component="small" />
+            <label htmlFor="time">Time</label>
+            <Field type="time" name="time" />
+            <ErrorMessage name="time" component="small" />
+            <Field type="hidden" name="pacient" />
+            <label htmlFor="doctor">Doctor</label>
+            <Field as="select" name="doctor">
+              <option value="">--</option>
+              {doctors.map((doctor) => (
+                <option value={doctor.id}>
+                  {doctor.name} {doctor.surname}
+                </option>
+              ))}
+            </Field>
+            <ErrorMessage name="doctor" component="small" />
+            <button type="submit" className="button">
+              Enviar
+            </button>
+            {isSend && <p>Formulario enviado con éxito!</p>}
+          </Form>
+        )}
+      </Formik>
+    </section>
+  )
 }
