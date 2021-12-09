@@ -13,12 +13,6 @@ function Navbar() {
         <Link className=" nav-item nav-link active" aria-current="page" to="/">
           Home
         </Link>
-        <Link className="nav-item nav-link" to="/Doctors">
-          Doctors
-        </Link>
-        <Link className="nav-item nav-link" to="/About">
-          About
-        </Link>
         {isLogged && (
           <Link className="nav-item nav-link" to="/Dashboard">
             Dashboard

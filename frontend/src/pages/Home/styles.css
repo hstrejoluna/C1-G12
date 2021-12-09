@@ -76,5 +76,6 @@
 }
 
 .button:hover{
+  color: white;
   background-color: rgb(173, 17, 93);
 }

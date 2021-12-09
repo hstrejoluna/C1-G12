@@ -4,6 +4,7 @@ import Heart from "../../images/heart-g09089e836_640 1.png"
 import "./styles.css"
 import { Link } from "react-router-dom"
 
+// Componente de la seccion donde se habla un poco sobre los doctores y los turnos
 function Doctors() {
   return (
     <section className="third-section">

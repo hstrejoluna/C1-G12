@@ -1,5 +1,6 @@
 import React from "react"
 
+//Componente para la sección donde se habla sobre Clinic
 export default function About() {
   return (
     <section className="operation2">
