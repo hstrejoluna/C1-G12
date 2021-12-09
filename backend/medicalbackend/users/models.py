@@ -8,6 +8,7 @@ class ExtendUser(AbstractUser):
     is_pacient = models.BooleanField('pacient status', default=False)
     is_doctor = models.BooleanField('doctor status', default=False)
     is_sysadmin = models.BooleanField('sysadmin status', default=False)
+    password = models.CharField(max_length=50)
 
 class Pacient(models.Model):
     # Pacient definition
@@ -20,7 +21,6 @@ class Pacient(models.Model):
     phone = models.CharField(max_length=15)
     social = models.CharField(max_length=30)
     plan = models.CharField(max_length=30)
-
     #USERNAME_FIELD = "username"
     #EMAIL_FIELD = "email"
 

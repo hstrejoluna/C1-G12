@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
+SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -152,6 +152,7 @@ AUTHENTICATION_BACKENDS = [
 GRAPHQL_JWT = {
     "JWT_ALLOW_ANY_CLASSES": [
         "graphql_auth.mutations.Register",
+        "users.schema.CreatePacient",
         "graphql_auth.mutations.VerifyAccount",
         "graphql_auth.mutations.ObtainJSONWebToken",
     ],
