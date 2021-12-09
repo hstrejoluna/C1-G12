@@ -3,10 +3,10 @@
 /**HOME PAGE**/
 
 .first-section {
-  background-image: url("../../images/banner.png");
+  background-image: url("../../images/banner.jpg");
   background-position: 60% 0;
   background-repeat: no-repeat;
-  background-size: 100% 1fr;
+  background-size: cover;
   min-height: 100vh;
   overflow-x: hidden;
   width: 1fr;
