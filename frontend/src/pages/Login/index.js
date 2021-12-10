@@ -7,9 +7,12 @@ import { UserContext } from "../../context/UserContext"
 import { Helmet } from "react-helmet"
 import { Link } from "react-router-dom"
 async function login(email, password) {
-  const user = await users.find((userIn) => userIn.email === email)
+  let user = await users.find((userIn) => userIn.email === email)
   const messageError = { err: "usuario y/o contraseña invalidos" }
 
+  if (!user && localStorage.getItem("userRegister")) {
+    user = await JSON.parse(localStorage.getItem("userRegister"))
+  }
   if (!user) return messageError
   const passOk = user.password === password
 
@@ -20,6 +23,7 @@ async function login(email, password) {
 export default function LoginPage() {
   const { isLogged, setIsLogged, userId, setUserId } = useContext(UserContext)
   const history = useHistory()
+  const comingTurn = localStorage.getItem("comingTurn") ? true : false
   return (
     <>
       <Helmet>
@@ -38,12 +42,14 @@ export default function LoginPage() {
             console.log(values)
             return login(values.email, values.password)
               .then((res) => {
+                const newLocation = comingTurn ? "/Turn" : "/Dashboard"
                 console.log(res)
                 if (res.err) return Promise.reject(res.err)
                 localStorage.setItem("userId", res.id)
                 setUserId(res.id)
                 setIsLogged(true)
-                return history.push("/Dashboard")
+                localStorage.removeItem("comingTurn")
+                return history.push(newLocation)
               })
               .catch((err) => {
                 setFieldError("all", err)

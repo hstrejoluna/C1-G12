@@ -32,7 +32,7 @@ Hoy en día el acceso a internet esta en la mayoría del planeta y entonces que 
 en este caso sacar un turno con tu médico sin moverte de tu casa solo accediendo a una página web, registrandose y listo podrás sacar turnos con el médico que quieras,
 para el día y horario que tu elijas.
 
-##Authors
+## Authors
 - Joan - backend
 - Vladimir - backend
 - Andoni - frontend

@@ -6,15 +6,22 @@ import { Helmet } from "react-helmet"
 
 export default function ViewUser() {
   const { userName } = useParams()
-  const [user, setUser] = useState(() => {
-    const find = users.filter(
-      (usr) => `${usr.name} ${usr.surname}` === decodeURI(userName)
+  let [user] = useState(() => {
+    const userFiltered = users.filter(
+      (user) => `${user.name} ${user.surname}` === decodeURI(userName)
     )
-    if (find) return find[0]
-    else return {}
+    if (userFiltered.length) return userFiltered[0]
+    const userRegister = JSON.parse(localStorage.getItem("userRegister"))
+    return userRegister
   })
-  const [appoints, setAppoints] = useState(() => {
-    return turns.filter((appoint) => appoint[user.type] === user.id)
+  const [appoints] = useState(() => {
+    const turnsFiltered = turns.filter(
+      (appoint) => appoint[user.type] === user.id
+    )
+    if (localStorage.getItem("newTurn")) {
+      turnsFiltered.push(JSON.parse(localStorage.getItem("newTurn")))
+    }
+    return turnsFiltered
   })
 
   console.log(user)

@@ -17,12 +17,13 @@ function Doctors() {
         <div className="third-section-container_container">
           <img
             alt="doctors"
+            className="doctors-animate"
             src={DoctorsSVG}
-            style={{
-              width: "295px",
-              height: "209px",
-              margin: "auto",
-            }}
+            // style={{
+            //   width: "295px",
+            //   height: "209px",
+            //   margin: "auto",
+            // }}
           />
         </div>
       </div>
@@ -30,16 +31,17 @@ function Doctors() {
       <div className="third-section-container">
         <div className="third-section-container_container">
           <img
+            className="heart"
             alt="heart"
             src={Heart}
-            style={{
-              width: "147px",
-              height: "133px",
-            }}
+            // style={{
+            //   width: "147px",
+            //   height: "133px",
+            // }}
           />
         </div>
         <div className="third-section-container_container">
-          <h2>You can take a turn and pay during your appointment</h2>
+          <h2>You can take a turn without come to the clinic</h2>
         </div>
       </div>
 

@@ -1,6 +1,7 @@
 /**DOCTORS PAGE**/
 
 .third-section{
+  letter-spacing: 1.2px;
   align-items: center;
   background-color: #1F7176; 
   color: white;
@@ -26,6 +27,7 @@
   font-weight: 500;
   overflow-x: hidden;
   padding: 0;
+  width: 90%;
 }
 
 .third-section-container_container{
@@ -40,5 +42,31 @@
 
 .third-section-container_container > img[alt="doctors"]{
   margin: auto;
-  transform: translateX(-10px);
+  transform: translateX(-20px);
+}
+
+.doctors-animate{
+  width: 160%;
+  height: 209px;
+  margin: auto;
+}
+.heart{
+  width: 147px;
+  height: 133px;
+  margin: auto; 
+}
+
+
+@media (min-width: 992px) {
+  .doctors-animate{
+    width: 594px;
+    height: 409px;
+    margin: auto;
+  }
+  .heart{
+    width: 594px;
+    height: 409px;
+    margin: auto;
+    padding-left: 3em;
+  }
 }

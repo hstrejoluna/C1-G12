@@ -2,15 +2,23 @@ import { Formik, Form, Field, ErrorMessage } from "formik"
 import "./index.css"
 import { users } from "../../dummybd"
 import { Helmet } from "react-helmet"
+import { useHistory } from "react-router-dom"
+import { useContext } from "react"
+import { UserContext } from "../../context/UserContext"
 
 async function register(info) {
   const isUser = await users.find((userIn) => userIn.email === info.email)
   const messageError = { err: "usuario no válido" }
   if (isUser) return new Error(messageError)
-  return info
+  const ids = await users.map(({ id }) => id)
+  const newUser = { id: Math.max(...ids) + 1, type: "pacient", ...info }
+  return newUser
 }
 
 export default function Register() {
+  const { isLogged, setIsLogged, userId, setUserId } = useContext(UserContext)
+  const history = useHistory()
+  const comingTurn = localStorage.getItem("comingTurn") ? true : false
   return (
     <>
       <Helmet>
@@ -35,7 +43,16 @@ export default function Register() {
           }}
           onSubmit={(values, { setFieldErrors }) => {
             register(values)
-              .then((res) => console.log(res))
+              .then((res) => {
+                const newLocation = comingTurn ? "/Turn" : "/Dashboard"
+                console.log(res)
+                localStorage.setItem("userRegister", JSON.stringify(res))
+                localStorage.setItem("userId", res.id)
+                setUserId(res.id)
+                setIsLogged(true)
+                localStorage.removeItem("comingTurn")
+                return history.push(newLocation)
+              })
               .catch((err) => console.log(err))
           }}
           validate={(values) => {

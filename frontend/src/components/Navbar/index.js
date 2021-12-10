@@ -28,6 +28,7 @@ function Navbar() {
           className="btn btn-outline-success"
           onClick={() => {
             localStorage.removeItem("userId")
+            localStorage.removeItem("userRegister")
             setIsLogged(false)
             setUserId("")
           }}
