@@ -1,6 +1,9 @@
 import graphene
-from .models import Doctor
+from django.contrib.auth import get_user_model
+from .models import Doctor, Patient
 from graphene_django import DjangoObjectType
+
+User = get_user_model()
 
 class DoctorType(DjangoObjectType):
    class Meta:
@@ -14,5 +17,5 @@ class UserType(DjangoObjectType):
 
 class PatientType(DjangoObjectType):
     class Meta:
-        model = Pacient
+        model = Patient
         fields = '__all__'

@@ -4,7 +4,7 @@ from users.models import Patient, Doctor
 from appointments.query import AppointmentType
 from graphene_django import DjangoObjectType, DjangoListField
 
-pacient = Pacient
+patient = Patient
 doctor = Doctor
 
 class CreateAppointment(graphene.Mutation):
@@ -13,7 +13,7 @@ class CreateAppointment(graphene.Mutation):
     This class must implement a mutate method.
     """
     class Arguments:
-        id_pacient = graphene.Int()                
+        id_patient = graphene.Int()                
         id_doctor = graphene.Int()
         Date = graphene.Date()                                             
         Time = graphene.Time()
@@ -25,7 +25,7 @@ class CreateAppointment(graphene.Mutation):
     def mutate(cls, root, info, **app_data):
          # Create Appointment
          appointment = Appointment(
-            Pacient = Pacient.objects.filter(pk=app_data.get('id_pacient')).first(),
+            Patient = Patient.objects.filter(pk=app_data.get('id_patient')).first(),
             Doctor = Doctor.objects.filter(pk=app_data.get('id_doctor')).first(),
             Date = app_data.get('Date'),
             Time = app_data.get('Time'),

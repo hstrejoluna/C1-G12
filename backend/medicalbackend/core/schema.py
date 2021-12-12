@@ -4,9 +4,9 @@ from graphql_auth.schema import UserQuery, MeQuery
 from django.contrib.auth import get_user_model
 from graphene_django import DjangoListField
 
-from users.models import Pacient, Doctor
+from users.models import Patient, Doctor
 from users.query import DoctorType
-from users.mutation import CreatePacient
+from users.mutation import CreatePatient
 from appointments.models import Appointment
 from appointments.query import AppointmentType
 from appointments.mutation import CreateAppointment
@@ -21,7 +21,7 @@ class AuthMutation(graphene.ObjectType):
    send_password_reset_email = mutations.SendPasswordResetEmail.Field()
    password_reset = mutations.PasswordReset.Field()
    password_change = mutations.PasswordChange.Field()
-   createpacient = CreatePacient.Field()
+   createpatient = CreatePatient.Field()
    createappointment = CreateAppointment.Field()
 #  
 class Query(UserQuery, MeQuery, graphene.ObjectType):
@@ -37,6 +37,9 @@ class Query(UserQuery, MeQuery, graphene.ObjectType):
    
    def resolve_dayappointments(self, info, day, status):
       return Appointment.objects.filter(Date=day, Status=status)
+   pass
+
+class Mutation(AuthMutation, graphene.ObjectType):
    pass
 
 schema = graphene.Schema(query=Query, mutation=Mutation)

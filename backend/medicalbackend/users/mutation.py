@@ -2,7 +2,7 @@ import graphene
 from graphql_auth import mutations
 from django.contrib.auth import get_user_model
 from .models import Patient
-from .query import PatientType, DoctorType
+from .query import PatientType, DoctorType, UserType
 from graphene_django import DjangoObjectType
 
 User = get_user_model()
@@ -26,7 +26,7 @@ class CreatePatient(graphene.Mutation):
       password2 = graphene.String()
 
     user = graphene.Field(UserType)
-    pacient = graphene.Field(PacientType)
+    patient = graphene.Field(PatientType)
 
     @classmethod
     def mutate(cls, root, info, **user_data):

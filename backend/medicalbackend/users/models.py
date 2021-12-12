@@ -9,9 +9,9 @@ class ExtendUser(AbstractUser):
     #password = models.CharField(max_length=50)
 
 class Patient(models.Model):
-    # Pacient definition
+    # Patient definition
     user = models.OneToOneField(ExtendUser, on_delete=models.CASCADE, primary_key=True)
-    # Pacient Fields
+    # Patient Fields
     name = models.CharField(max_length=40)
     surname = models.CharField(max_length=40)
     email = models.EmailField(blank=False, max_length=255, verbose_name="email")
@@ -34,7 +34,6 @@ class Doctor(models.Model):
     turn = models.CharField(max_length=15)
 
 class SysAdmin(models.Model):
-    # Pacient definition
     user = models.OneToOneField(ExtendUser, on_delete=models.CASCADE, primary_key=True)
     name = models.CharField(max_length=40)
     surname = models.CharField(max_length=40)
