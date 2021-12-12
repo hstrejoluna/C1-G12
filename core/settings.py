@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import django_heroku
+import dj_database_url
 import os
 import environ
 # Initialise environment variables
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
     'graphql_jwt.refresh_token.apps.RefreshTokenConfig',
     'graphql_auth',
     'django_filters',
+    "whitenoise.runserver_nostatic",
 ]
 
 MIDDLEWARE = [
@@ -60,6 +62,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'core.urls'
@@ -96,7 +99,8 @@ DATABASES = {
         'PORT': "",
     }
 }
-
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -134,7 +138,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+if "DYNO" in os.environ:
+    STATIC_ROOT = 'static'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STATIC_URL = '/static/'#location where django collect all static files
+STATIC_ROOT = os.path.join(BASE_DIR,'static')# location where you will store your static files
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'static/')]
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_URL = '/media/'
+
 
 AUTH_USER_MODEL = 'users.ExtendUser'
 
@@ -174,11 +189,3 @@ django_heroku.settings(locals())
 
 django_heroku.settings(locals(), staticfiles=False, allowed_hosts=False)
 
-if "DYNO" in os.environ:
-    STATIC_ROOT = 'static'
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-STATIC_URL = '/static/'#location where django collect all static files
-STATIC_ROOT = os.path.join(BASE_DIR,'static')# location where you will store your static files
-STATICFILES_DIRS = [os.path.join(BASE_DIR,'project_name/static')]
