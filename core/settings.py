@@ -172,3 +172,6 @@ CORS_ALLOWED_ORIGINS = [
 django_heroku.settings(locals())
 
 django_heroku.settings(locals(), staticfiles=False, allowed_hosts=False)
+
+if "DYNO" in os.environ:
+    STATIC_ROOT = 'static'
