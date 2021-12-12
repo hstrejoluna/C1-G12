@@ -1,6 +1,6 @@
 import graphene
 from .models import Appointment
-from users.models import Pacient, Doctor
+from users.models import Patient, Doctor
 from appointments.query import AppointmentType
 from graphene_django import DjangoObjectType, DjangoListField
 

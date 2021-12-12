@@ -3,17 +3,17 @@ from django.contrib.auth.models import AbstractUser
 # Create your models here.
 
 class ExtendUser(AbstractUser):
-    name = models.CharField(max_length=40)
-    surname = models.CharField(max_length=40)
-    is_pacient = models.BooleanField('pacient status', default=False)
+    is_patient = models.BooleanField('patient status', default=False)
     is_doctor = models.BooleanField('doctor status', default=False)
     is_sysadmin = models.BooleanField('sysadmin status', default=False)
-    password = models.CharField(max_length=50)
+    #password = models.CharField(max_length=50)
 
-class Pacient(models.Model):
+class Patient(models.Model):
     # Pacient definition
     user = models.OneToOneField(ExtendUser, on_delete=models.CASCADE, primary_key=True)
     # Pacient Fields
+    name = models.CharField(max_length=40)
+    surname = models.CharField(max_length=40)
     email = models.EmailField(blank=False, max_length=255, verbose_name="email")
     dni = models.CharField(max_length=15)
     age = models.DateField()
@@ -28,10 +28,14 @@ class Doctor(models.Model):
     # Doctor definition
     user = models.OneToOneField(ExtendUser, on_delete=models.CASCADE, primary_key=True)
     # Doctor Fields
+    name = models.CharField(max_length=40)
+    surname = models.CharField(max_length=40)
     speciality = models.CharField(max_length=20)
     turn = models.CharField(max_length=15)
 
 class SysAdmin(models.Model):
     # Pacient definition
     user = models.OneToOneField(ExtendUser, on_delete=models.CASCADE, primary_key=True)
+    name = models.CharField(max_length=40)
+    surname = models.CharField(max_length=40)
 

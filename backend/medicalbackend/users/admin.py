@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import ExtendUser, Doctor, Pacient, SysAdmin
+from .models import ExtendUser, Doctor, Patient, SysAdmin
 from django.apps import apps
 # Register your models here.
 admin.site.register(ExtendUser)
 admin.site.register(Doctor)
-admin.site.register(Pacient)
+admin.site.register(Patient)
 admin.site.register(SysAdmin)
 
 app = apps.get_app_config('graphql_auth')

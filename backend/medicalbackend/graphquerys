@@ -1,0 +1,85 @@
+# Create Pacient
+
+mutation {
+  createpacient (
+    name: "Joel",
+    surname: "Aldecua"
+    password1: "Hello",
+    password2: "Hello",
+    email: "newData@gmail.com",
+    dni: "1642875",
+    age: "1997-10-19"
+    gender: "Masculino",
+    phone: "9797975786" ,
+    social: "Activo",
+    plan: "Medico"
+  ){
+  pacient{
+      dni,
+      phone,
+    }
+  }
+}
+
+# Select all Doctors
+
+{
+  doctors{
+  name,
+  surname,
+  speciality,
+  turn
+	}
+}
+
+# Create new Appointment
+
+mutation{
+  createappointment(
+    idPacient: 2,
+    idDoctor: 4,
+    Date: "2021-12-18",
+    Time: "09:45:15"
+  ){
+		appointment{
+      Pacient{
+    		user{
+          id
+        }
+        name
+      },
+      Doctor{
+        name
+      },
+      Date,
+      Time
+    }
+  }
+}
+
+# Get all Appointments
+
+{
+ allappointments{
+  id,
+  Pacient{
+    user{
+      id
+    },
+    name,
+    surname,
+  }
+  Doctor{
+    user{
+      id
+    },
+    name,
+    surname
+  }
+  Date,
+  Time,
+  Status
+} 
+}
+
+# Get all Appointment in a specific date
