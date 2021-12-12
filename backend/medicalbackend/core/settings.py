@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 from pathlib import Path
 import environ
+import django_heroku
 # Initialise environment variables
 env = environ.Env()
 environ.Env.read_env()
@@ -166,3 +167,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     "htpps://clinic-beta-vercel.app",
 ]
+
+django_heroku.settings(locals())
