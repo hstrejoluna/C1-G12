@@ -171,4 +171,4 @@ CORS_ALLOWED_ORIGINS = [
 
 django_heroku.settings(locals())
 
-heroku config:set DISABLE_COLLECTSTATIC=1
+django_heroku.settings(locals(), staticfiles=False, allowed_hosts=False)
