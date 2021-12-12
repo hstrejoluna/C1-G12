@@ -29,11 +29,11 @@ SECRET_KEY = env('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["htpps://clinic-beta-vercel.app"]
-
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1',
+                    'htpps://clinic-beta-vercel.app',
+                    'https://django-server-medicalbackend.herokuapp.com']
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -176,3 +176,9 @@ django_heroku.settings(locals(), staticfiles=False, allowed_hosts=False)
 
 if "DYNO" in os.environ:
     STATIC_ROOT = 'static'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+STATIC_URL = '/static/'#location where django collect all static files
+STATIC_ROOT = os.path.join(BASE_DIR,'static')# location where you will store your static files
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'project_name/static')]
