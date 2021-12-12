@@ -1,0 +1,555 @@
+    1  sudo apt-get install chromium-browser
+    2  clear
+    3  sudo apt-get install VLC 
+    4  sudo snap install VLC 
+    5  sudo apt-get install vlc
+    6  clear
+    7  sudo mousepad config.inc.php 
+    8  sudo apt-get install mousepad
+    9  sudo mousepad config.inc.php 
+   10  cd /opt/lampp/phpmyadmin/
+   11  sudo mousepad config.inc.php 
+   12  mysql -u root -p
+   13  clear
+   14  sudo mousepad config.inc.php 
+   15  mysql -u root -p
+   16  clear
+   17  sudo mousepad config.inc.php 
+   18  sudo dpkg -i mongodb-org-server_4.4.6_amd64.deb 
+   19  sudo systemctl status mongodb
+   20  mongo --eval 'db.runCommand({ connectionStatus: 1 })'
+   21  sudo systemctl start mongodb
+   22  sudo apt-get install --reinstall mongod
+   23  sudo apt-get install --reinstall mongodb
+   24  sudo systemctl status mongodb
+   25  mongod --version
+   26  php composer-setup.php --install-dir=bin 
+   27  php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+   28  php -r "if (hash_file('sha384', 'composer-setup.php') === '756890a4488ce9024fc62c56153228907f1545c228516cbf63f885e036d37e9a59d27d63f46af1d4d07ee0f76181c7d3') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+   29  php composer-setup.php
+   30  php composer-setup.php --install-dir=bin
+   31  sudo /opt/lampp/lampp restart
+   32  sudo /etc/init.d/mysql stop
+   33  sudo  /opt/lampp/lampp restart
+   34  sudo  /opt/lampp/lampp stop
+   35  sudo rm composer 
+   36  sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+   37  php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+   38  clear
+   39  cd
+   40  php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+   41  sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+   42  clear
+   43  sudo su
+   44  clear
+   45  php -r "unlink('composer-setup.php');"
+   46  composer create-project laravel/laravel example-app
+   47  clear
+   48  cd /opt/lampp/
+   49  ls
+   50  sudo chown -R jjwizard ./htdocs/
+   51  cd htdocs/
+   52  clear
+   53  laravel new example-app
+   54  cd
+   55  composer global require laravel/installer
+   56  cd /opt/lampp/htdocs/
+   57  clear
+   58  composer create-project laravel/laravel example-app
+   59  cd example-app/
+   60  clear
+   61  php artisan serve
+   62  cd ..
+   63  clear
+   64  cd
+   65  echo 'export PATH="$PATH:$HOME/.composer/vendor/bin"' >> ~/.bashrc
+   66  source ~/.bashrc
+   67  cd /opt/lampp/ht
+   68  cd /opt/lampp/htdocs/
+   69  ls
+   70  sudo rm -rf ./example-app/
+   71  laravel new example-app
+   72  composer create-project laravel/laravel example-app
+   73  cd -
+   74  clear
+   75  sudo dpkg -i code_1.56.2-1620838498_amd64.deb
+   76  source ./.ENV/IA/bin/activate
+   77  pip install jupyter notebook jupyter-lab
+   78  pip install jupyter-lab
+   79  pip install jupyterlab
+   80  jupyter-lab
+   81  clear
+   82  deactivate
+   83  clear
+   84  sudo apt update
+   85  sudo apt install xz-utils
+   86  ls
+   87  clear
+   88  ls
+   89  sudo tar -xvf node-v14.17.0-linux-x64.tar.xz
+   90  clear
+   91  ls
+   92  sudo cp -r node-v14.17.0-linux-x64/{bin,include,lib,share} /usr/
+   93  node --version
+   94  clear
+   95  sudo rm -rf node-v14.17.0-linux-x64
+   96  node -V
+   97  node --version
+   98  clear
+   99  cd JS\ Proyects/
+  100  clear
+  101  npx create-react-app my-app
+  102  cd my-app/
+  103  npm start
+  104  history
+  105  cd
+  106  clear
+  107  sudo /opt/lampp/lampp start
+  108  mysql -u root -p
+  109  sudo /opt/lampp/phpmyadmin/
+  110  cd /opt/lampp/phpmyadmin/
+  111  clear
+  112  sudo mousepad ./config.inc.php 
+  113  clear
+  114  sudo systemctl mysql stop
+  115  cd
+  116  sudo service mysql restart
+  117  clear
+  118  sudo systemctl mysql
+  119  sudo systemctl status mysql
+  120  clear
+  121  sudo /opt/lampp/lampp stop
+  122  sudo /opt/lampp/lampp start
+  123  mysql -u root -p
+  124  clear
+  125  cd /opt/lampp/phpmyadmin/
+  126  clear
+  127  sudo mousepad config.inc.php 
+  128  sudo service mysql restart
+  129  sudo mousepad config.inc.php 
+  130  cd
+  131  clear
+  132  python3.8 -m venv ./.ENV/WEB
+  133  source ./.ENV/WEB/
+  134  source ./.ENV/WEB/bin/activate
+  135  clear
+  136  pip install numpy scipy 
+  137  pip install --upgrade pip
+  138  pip install Django==3.2.4
+  139  cd Py\ Projects/
+  140  clear
+  141  mkdir WebsPages
+  142  cd WebsPages/
+  143  clear
+  144  django-admin startproject mysite
+  145  cd mysite/
+  146  python manage.py runserver
+  147  sudo /opt/lampp/lampp start
+  148  sudo systemctl daemon-reload
+  149  sudo systemctl start mongod
+  150  sudo systemctl daemon-reload
+  151  sudo systemctl start mongod
+  152  sudo systemctl status mongod
+  153  sudo apt-get remove --purge mongodb
+  154  sudo apt-get remove mongodb* --purge
+  155  sudo apt-get purge mongodb-org*
+  156  sudo apt-get purge mongodb-*
+  157  mongod
+  158  mongo
+  159  sudo apt-get purge mongodb mongodb-clients mongodb-server mongodb-dev
+  160  sudo apt-get purge mongodb-10gen
+  161  sudo apt-get autoremove
+  162  mongo
+  163  sudo rm -r /var/log/mongodb
+  164  sudo rm -r /var/lib/mongodb
+  165  mongod
+  166  clear
+  167  wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+  168  echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+  169  sudo apt-get update
+  170  sudo apt-get install -y mongodb-org
+  171  sudo systemctl start mongod
+  172  sudo systemctl status mongod
+  173  mongo --version
+  174  mongod --version
+  175  mongo
+  176  pulseaudio --start
+  177  sudo apt-get install pavucontrol
+  178  pavucontrol
+  179  sudo apt-get install pavucontrol777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777777776666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666T54655557tttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttty<{yiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiioP>>>/&&IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII&&&&&&&&&&&&I/&&&&&&&&&&&&&&&&&II//&&&&&&&&&&&&&&&&&&&&&I///////////////I/&&&&&&&&&&&&&&&&&&&&I//&&&&&&&&&&&&&&&&&I//////////////////////////////////////////////////////&&&&&&&&&&&&&&&&&&&&&/IIIIIIIIIIIIIII&&&&&&&&&&&&&&&&&&&&&&&&&&&&&AI/I&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&/&//&////////////&//////&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&////////////////&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////I&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&IÑññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññññ+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPP>*O&
+  180  nano ~/.bashrc
+  181  sudo systemctl stop mysql
+  182  sudo systemctl status mysql
+  183  sudo systemctl status mongodb
+  184  sudo systemctl status mongo
+  185  mongod --version
+  186  sudo systemctl start mongodb
+  187  clear
+  188  sudo systemctl stop mysql
+  189  sudo systemctl status postgresql
+  190  sudo systemctl stop postgresql
+  191  sudo systemctl start mongodb
+  192  sudo systemctl enable mongod
+  193  sudo systemctl start mongodb
+  194  clear
+  195  sudo service mongod status
+  196  sudo service mongod start
+  197  sudo systemctl start mongodb
+  198  sudo service mongod status
+  199  sudo service mongo start
+  200  sudo service mongod status
+  201  sudo service mongo start
+  202  mongo
+  203  clear
+  204  sudo service mongo start
+  205  sudo systemctl enable mongod
+  206  sudo service mongo start
+  207  mongo
+  208  sudo service mongo start
+  209  clear
+  210  sudo service mongo status
+  211  sudo service mongod status
+  212  sudo service mongod stop
+  213  sudo service mysql stop
+  214  sudo service postgesql stop
+  215  clear
+  216  sudo service mongod status
+  217  sudo service mysql status
+  218  sudo service postgesql status
+  219  clear
+  220  sudo service postgresql status
+  221  clear
+  222  free -h
+  223  sudo apt-get install lxqt
+  224  source ./.ENV/IA/bin/activate
+  225  clear
+  226  pip install shapely
+  227  source ./.ENV/IA/
+  228  source ./.ENV/IA/bin/activate
+  229  clear
+  230  jupyter lab
+  231  sudo apt-install xubuntu
+  232  sudo apt-get install xubuntu
+  233  sudo apt-get install xfce
+  234  sudo apt-get install xfce4
+  235  exit
+  236  find terminal
+  237  apropos terminal
+  238  xterm
+  239  source ./.ENV/IA/bin/activate
+  240  jupyter lab
+  241  source ./.ENV/IA/bin/activate
+  242  clear
+  243  jupyter lab
+  244  source ./.ENV/IA/bin/activate
+  245  jupyter lab
+  246  source ./.ENV/IA/bin/activate
+  247  jupyter lab
+  248  source ./.ENV/IA/bin/activate
+  249  jupyter lab
+  250  cmp ct1 ct2 
+  251  diff ct1 ct2
+  252  diff ct1 ct2 > dif
+  253  xfce:xfc4-panel:clock
+  254  fdisk -l
+  255  sudo su
+  256  mkdir webjs
+  257  cd webjs
+  258  npx create-strapi-app my-project --quickstart
+  259  npm install
+  260  npm test
+  261  clear
+  262  npm test
+  263  clear
+  264  npm test
+  265  clear
+  266  npm test
+  267  clear
+  268  npm test
+  269  clear
+  270  npm test
+  271  clear
+  272  npm test
+  273  clear
+  274  npm test
+  275  clear
+  276  npm test
+  277  clear
+  278  npm test
+  279  jupyter notebook
+  280  clear
+  281  source ./.ENV/IA/bin/activate
+  282  jupyter notebook
+  283  jupyter lab
+  284  source ./.ENV/IA/bin/activate
+  285  cd Respaldo\ Home/
+  286  ls
+  287  clear
+  288  cd
+  289  ls .ENV/
+  290  clear
+  291  python3.8 -m venv .ENV/oleo
+  292  source .ENV/oleo/
+  293  source .ENV/oleo/bin/activate
+  294  clear
+  295  pip install jupyter-lab
+  296  pip install --upgrade pip
+  297  pip install jupyterlab
+  298  jupyter-lab
+  299  source .ENV/oleo/bin/activate
+  300  pip install numpy
+  301  pip install scipy
+  302  clear
+  303  pip install tensorflow
+  304  source .ENV/oleo/bin/activate
+  305  pip install tensorflow
+  306  pip uninstall tensorflow
+  307  pip install tensorflow
+  308  clear
+  309  pip freeze
+  310  source .ENV/oleo/bin/activate
+  311  clear
+  312  python -V
+  313  python
+  314  sudo apt update
+  315  source .ENV/ol/bin/activate
+  316  clear
+  317  cd Respaldo\ Home/oleo/
+  318  clear
+  319  ls
+  320  python painting.py 
+  321  clear
+  322  deactivate
+  323  clear
+  324  cd
+  325  source .ENV/oleo/bin/activate
+  326  python -V
+  327  clear
+  328  cd Respaldo\ Home/oleo/
+  329  clear
+  330  python freeze > requirements.txt
+  331  pip freeze > requirements.txt
+  332  cat requirements.txt 
+  333  pip install numpy
+  334  pip install opencv
+  335  pip install opencv-python
+  336  jupyter lab
+  337  cd
+  338  clear
+  339  deactivate
+  340  python3.8 -m venv .ENV/oleo
+  341  source .ENV/oleo/
+  342  source .ENV/oleo/bin/activate
+  343  clear
+  344  pip install numpy scipy opencv-python tensorflow
+  345  pip uninstall numpy
+  346  pip install numpy==1.19.2
+  347  pip install --upgrade pip
+  348  pip install jupyterlab
+  349  clear
+  350  jupyter lab
+  351  source .ENV/IA/bin/activate
+  352  jupyter lab
+  353  source .ENV/IA/bin/activate
+  354  jupyter lab
+  355  ls
+  356  unrar x IngridScamilla.rar 
+  357  sudo apt install unrar
+  358  unrar x IngridScamilla.rar 
+  359  sudo apt install postman
+  360  sudo apt update
+  361  sudo apt install postman
+  362  sudo snap install postman
+  363  clear
+  364  postman
+  365  psql
+  366  source .ENV/medical/bin/activate
+  367  psql
+  368  sudo -u postgres psql
+  369  sudo -i -u postgres
+  370  sudo -u jjwizard psql
+  371  psql
+  372  psql -d postgres
+  373  sudo -i -u jjwizard
+  374  psql
+  375  sudo -i -u postgres
+  376  clear
+  377  source .ENV/medical/bin/activate
+  378  pip install pycorp2-binary
+  379  pip install pycorpg2-binary
+  380  clear
+  381  pip install psycopg2-binary
+  382  clear
+  383  cd backend/
+  384  ls
+  385  cd medicalbackend/
+  386  ls
+  387  clear
+  388  python manage.py migrate
+  389  python manage.py makemigrations
+  390  python manage.py runserver
+  391  clear
+  392  python manage.py runserver
+  393  cleae
+  394  clear
+  395  python manage.py runserver
+  396  psql postgres
+  397  python -V
+  398  python3 -m venv .ENV/medical
+  399  source .ENV/medical/bin/activate
+  400  pip install django djangorestframework markdown django-filter
+  401  pip install --upgrade pip
+  402  pip install djangorestframework-simplejwt
+  403  pip install pandas
+  404  deactivate
+  405  cd .ENV/
+  406  ls
+  407  sudo rm -rf medical/
+  408  python3 -m venv .ENV/medical
+  409  source .ENV/medical/bin/activate
+  410  pip install django djangorestframework markdown django-filter
+  411  pip install djangorestframework-simplejwt
+  412  clear
+  413  cd
+  414  clear
+  415  mkdir backend
+  416  cd backend/
+  417  ls
+  418  django-admin startproject medicalbackend
+  419  ls
+  420  cd
+  421  cd .ENV/
+  422  ls
+  423  .ENV/
+  424  cd .ENV/
+  425  ls
+  426  cd ..
+  427  rm -rf .ENV/
+  428  clear
+  429  cd
+  430  deactivate
+  431  python3 -m venv .ENV/medical
+  432  pip install django djangorestframework markdown django-filterdjangorestframework-simplejwt
+  433  source .ENV/medical/bin/activate
+  434  pip install django djangorestframework markdown django-filterdjangorestframework-simplejwt
+  435  pip install django djangorestframework markdown django-filter djangorestframework-simplejwt
+  436  cd backend/
+  437  django-admin startproject medicalbackend
+  438  cd ..
+  439  pip install Django
+  440  cd ./EN
+  441  cd .ENV/N
+  442  cd .ENV/
+  443  clear
+  444  rm -rf medical/
+  445  deactivate
+  446  cd ..
+  447  clear
+  448  python3.8 -m venv .ENV/medical
+  449  source .ENV/medical/bin/activate
+  450  pip install Django djangorestframework markdown django-filter djangorestframework-simplejwt
+  451  cd backend/
+  452  ls
+  453  python -V
+  454  django-admin startproject medicalbackend
+  455  postgress
+  456  postgre
+  457  clear
+  458  su - postgres
+  459  postgres
+  460  sudo service start postgres
+  461  clear
+  462  cleare
+  463  clear
+  464  sudo -i -u jjwizard
+  465  cd
+  466  source .ENV/medical/bin/activate
+  467  deactivate
+  468  source .ENV/medicalenv/bin/activate
+  469  cd backend/medicalbackend
+  470  ls
+  471  clear
+  472  ls
+  473  clear
+  474  python manage.py startapp appointments
+  475  python manage.py makemigrations
+  476  python manage.py runserver
+  477  python manage.py migrate
+  478  python manage.py runserver
+  479  python manage.py makemigrations
+  480  python manage.py migrate
+  481  python manage.py makemigrations
+  482  python manage.py migrate
+  483  python manage.py runserver
+  484  cd backend/medicalbackend/
+  485  clear
+  486  cd
+  487  source .ENV/medicalenv/bin/activate
+  488  cd Cohorte1-Grupo12/backend/medicalbackend/
+  489  clear
+  490  python manage.py runserver
+  491  cd backend/medicalbackend/
+  492  cd
+  493  source .ENV/medicalenv/bin/activate
+  494  cd Cohorte1-Grupo12/backend/medicalbackend/
+  495  clear
+  496  python manage.py makemigrations
+  497  python manage.py migrate
+  498  source ../.ENV/medicalenv/bin/activate
+  499  cd backend/medicalbackend/
+  500  ls
+  501  python
+  502  clear
+  503  python manage.py runserver
+  504  cd ..
+  505  cat /tmp/postgres
+  506  ls /tmp
+  507  source .ENV/medicalenv/bin/activate
+  508  cd Cohorte1-Grupo12/backend/medicalbackend/
+  509  ls
+  510  clear
+  511  python manage.py makemigrations
+  512  python manage.py migrate
+  513  python manage.py runserver
+  514  python manage.py makemigrations
+  515  python manage.py runserver
+  516  python manage.py migrate
+  517  python manage.py runserver
+  518  pip install django-heroku
+  519  pip django-heroku
+  520  pip install
+  521  pip install django-heroku
+  522  pip install psycopg2-binary
+  523  pip install django-heroku
+  524  pip install --no-binary :all: psycopg2
+  525  python -v
+  526  clear
+  527  python --version
+  528  pip install psycopg2-binary
+  529  pip install --no-binary :all: psycopg2
+  530  pip install psycopg2-binary
+  531  pip install django-heroku
+  532  pip install gunicorn
+  533  pip install django-heroku
+  534  ls
+  535  cd ..
+  536  ls
+  537  cd home/
+  538  ls
+  539  cd jjwizard/
+  540  cd Cohorte1-Grupo12/
+  541  ls
+  542  pip install django-heroku
+  543  heroku config:set DISABLE_COLLECTSTATIC=1
+  544  sudo apt install heroku-cli
+  545  sudo apt install heroku
+  546  sudo snap install --classic heroku
+  547  web: gunicorn myproject.wsgi --log-file -
+  548  pip freeze > requirements.txt
+  549  sudo snap install --classic heroku
+  550  heroku config:set DISABLE_COLLECTSTATIC=1
+  551  heroku config:set DISABLE_COLLECTSTATIC=1 -a
+  552  heroku config:set DISABLE_COLLECTSTATIC=1 -a APP
+  553  heroku config:set DISABLE_COLLECTSTATIC=1 
+  554  heroku config:set DISABLE_COLLECTSTATIC=1 -a  django-server-medicalbackend 
+  555  history > savehistory
