@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import django_heroku
+heroku config:set DISABLE_COLLECTSTATIC=1
 
 from pathlib import Path
 import environ
