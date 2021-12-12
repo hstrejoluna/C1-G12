@@ -96,7 +96,7 @@ DATABASES = {
         'USER': env('DATABASE_USER'),
         'PASSWORD': env('DATABASE_PASS'),
         'HOST': env('HOST'),
-        'PORT': "",
+        'PORT': env('PORT'),
     }
 }
 db_from_env = dj_database_url.config(conn_max_age=600)
