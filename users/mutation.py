@@ -36,7 +36,7 @@ class CreatePatient(graphene.Mutation):
             first_name=user_data.get('name'),
             last_name=user_data.get('surname'),
             email=user_data.get('email'),
-            is_pacient=True
+            is_patient=True
          )
          user.set_password(user_data.get('password1'))  # This will hash the password
          user.save()
