@@ -44,7 +44,6 @@ $ pip install -r requirements.txt
 ```
 
 ### Configuración de la base de datos:
-<br>
 
 Debemos configurar nuestro motor de base de datos para realizar las conexiones.
 
