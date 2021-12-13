@@ -96,7 +96,7 @@ DATABASES = {
         'USER': env('DATABASE_USER'),
         'PASSWORD': env('DATABASE_PASS'),
         'HOST': env('HOST'),
-        'PORT': env('PORT'),
+        'PORT': "",#env('PORT'),
     }
 }
 db_from_env = dj_database_url.config(conn_max_age=600)
@@ -154,7 +154,7 @@ MEDIA_URL = '/media/'
 AUTH_USER_MODEL = 'users.ExtendUser'
 
 GRAPHENE = {
-    'SCHEMA' :  'core.schema.schema', # 'appointments.schema.schema' ],
+    'SCHEMA' :  'core.schema.schema', 
     'MIDDLEWARE': [
         'graphql_jwt.middleware.JSONWebTokenMiddleware',
     ],

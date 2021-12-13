@@ -1,3 +1,12 @@
+# Login
+
+mutation{
+  tokenAuth(email: "enzo@clinic.com",
+    password: "1234"){
+  	token
+  }
+}
+
 # Create Patient
 
 mutation {
@@ -15,8 +24,16 @@ mutation {
     plan: "Medico"
   ){
   pacient{
+      user{
+        id
+      }
+      name,
+      surname,
+      email,
       dni,
       phone,
+      social,
+      plan
     }
   }
 }
@@ -25,11 +42,15 @@ mutation {
 
 {
   doctors{
-  name,
-  surname,
-  speciality,
-  turn
-	}
+    user{
+      id
+    }
+    name,
+    surname,
+    speciality,
+    turn,
+    status
+    }
 }
 
 # Create new Appointment
@@ -42,6 +63,7 @@ mutation{
     Time: "09:45:15"
   ){
 		appointment{
+      id,
       Pacient{
     		user{
           id
@@ -83,3 +105,75 @@ mutation{
 }
 
 # Get all Appointment in a specific date
+
+{
+	dayappointments(day: "2021-12-15", status:"Pending"){
+    id,
+    Patient{
+      user{
+        id
+      }
+      name,
+      surname
+    }
+    Doctor{
+      user{
+        id
+      }
+      name,
+      surname
+    }
+    Date,
+    Time,
+    Status
+  }
+}
+
+# Get all appointment for a patient
+
+{
+	allappointforpatient(idPatient: 2){
+    id,
+    Patient{
+      user{
+        id
+      }
+      name,
+      surname
+    }
+    Doctor{
+      user{
+        id
+      }
+      name,
+      surname
+    }
+    Date,
+    Time,
+    Status
+  }
+}
+
+# Get all appointment for a doctor
+{
+	allappointfordoctor(idDoctor: 4){
+    id,
+    Patient{
+      user{
+        id
+      }
+      name,
+      surname
+    }
+    Doctor{
+      user{
+        id
+      }
+      name,
+      surname
+    }
+    Date,
+    Time,
+    Status
+  }
+}
