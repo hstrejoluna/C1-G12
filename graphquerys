@@ -64,13 +64,16 @@ mutation{
   ){
 		appointment{
       id,
-      Pacient{
+      Patient{
     		user{
           id
         }
         name
       },
       Doctor{
+        user{
+          id
+        }
         name
       },
       Date,

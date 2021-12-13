@@ -5,11 +5,13 @@ from django.contrib.auth import get_user_model
 from graphene_django import DjangoListField
 
 from users.models import Patient, Doctor
-from users.query import DoctorType, PatientType
+from users.query import DoctorType, PatientType, UserType
 from users.mutation import CreatePatient
 from appointments.models import Appointment
 from appointments.query import AppointmentType
 from appointments.mutation import CreateAppointment
+
+User = get_user_model()
 
 # Include all classes
 class AuthMutation(graphene.ObjectType):
@@ -25,7 +27,9 @@ class AuthMutation(graphene.ObjectType):
    createappointment = CreateAppointment.Field()
 #  
 class Query(UserQuery, MeQuery, graphene.ObjectType):
-   # All patients
+   # User filters
+   searchuser = graphene.List(UserType, id_user=graphene.Int())
+   # Patients filters
    allpatients = DjangoListField(PatientType)
    # Doctor Filters
    alldoctors = DjangoListField(DoctorType)
@@ -39,7 +43,10 @@ class Query(UserQuery, MeQuery, graphene.ObjectType):
    allappointfordoctor = graphene.List(AppointmentType,
                         id_doctor=graphene.Int())
 
-   # Resolve doctors
+   # Resolve users
+   def resolve_searchuser(self, info, id_user):
+      return User.objects.filter(pk=id_user)
+   # Resolve patients
    def resolve_allpatients(self, info):
       return Patient.objects.all()
 
