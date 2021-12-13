@@ -31,7 +31,7 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1',
-                    'htpps://clinic-beta-vercel.app',
+                    'https://clinic-beta-vercel.app',
                     'https://django-server-medicalbackend.herokuapp.com']
 
 # Application definition
