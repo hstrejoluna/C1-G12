@@ -31,7 +31,6 @@ SECRET_KEY = env('SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1',
-                    'https://clinic-beta-vercel.app',
                     'https://django-server-medicalbackend.herokuapp.com']
 
 # Application definition
@@ -182,7 +181,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ALLOWED_ORIGINS = [
-    "https://clinic-beta-vercel.app",
+    "https://clinic-beta.vercel.app",
     "http://localhost:3000",
     "http://localhost:8080",
     "http://127.0.0.1:9000",
