@@ -11,9 +11,12 @@ export default function UserContextProvider({ children }) {
   const [isLogged, setIsLogged] = useState(() =>
     localStorage.getItem("userId") ? true : false
   )
+  const [changes, setChanges] = useState(false)
 
   return (
-    <UserContext.Provider value={{ userId, setUserId, isLogged, setIsLogged }}>
+    <UserContext.Provider
+      value={{ userId, setUserId, isLogged, setIsLogged, changes, setChanges }}
+    >
       {children}
     </UserContext.Provider>
   )

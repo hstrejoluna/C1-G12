@@ -5,6 +5,8 @@ import "./styles.css"
 import { Link, Redirect } from "react-router-dom"
 import { UserContext } from "../../context/UserContext"
 import { Helmet } from "react-helmet"
+import { queryAllPatients, queryAllDoctors } from "../../config/queries"
+import { useQuery } from "@apollo/client"
 
 //Componente para el manejo de datos del usuario o usuarios en caso del admin
 export default function Dashboard() {
@@ -12,54 +14,55 @@ export default function Dashboard() {
   const { userId, isLogged } = useContext(UserContext)
   //Sacando el usuario que esta logeado por su id
   const [user] = useState(() => {
-    const filterUser = users.filter((user) => user.id === userId)
-    if (filterUser.length) return filterUser[0]
-    return JSON.parse(localStorage.getItem("userRegister"))
+    if (isLogged && localStorage.getItem("user"))
+      return JSON.parse(localStorage.getItem("user"))
+    else return null
   })
   //Usuarios disponibles para ver en el dashboard
-  const [usersState] = useState(() => {
-    if (!user) return []
-    let usersFiltered
-    if (user.type === "admin") {
-      usersFiltered = users.filter((user) => user.type !== "admin")
-      if (localStorage.getItem("userRegister")) {
-        usersFiltered.push(JSON.parse(localStorage.getItem("userRegister")))
-      }
-      return usersFiltered
-    } else if (user.type === "pacient" || user.type === "doctor") {
-      usersFiltered = users.filter((user) => user.id === userId)
-      if (localStorage.getItem("userRegister")) {
-        usersFiltered.push(JSON.parse(localStorage.getItem("userRegister")))
-      }
-      return usersFiltered
-    }
-  })
+  const { loading: loadingPatients, data: patients } =
+    useQuery(queryAllPatients)
+  const { loading: loadingDoctors, data: doctors } = useQuery(queryAllDoctors)
+  const [users, setUsers] = useState([])
   const [search, setSearch] = useState("") //Busqueda de usuarios
 
   //Usuarios que se mostraran en el dashboar despues de una búsqueda
-  const [usersSearched, setUsersSearched] = useState(() => {
-    if (!user) return []
-    let usersFiltered
+  const [usersSearched, setUsersSearched] = useState([])
+
+  useEffect(() => {
+    if (loadingPatients) return
+    console.log("patients", patients)
     if (user.type === "admin") {
-      usersFiltered = users.filter((user) => user.type !== "admin")
-      if (localStorage.getItem("userRegister")) {
-        usersFiltered.push(JSON.parse(localStorage.getItem("userRegister")))
-      }
-      return usersFiltered
-    } else if (user.type === "pacient" || user.type === "doctor") {
-      usersFiltered = users.filter((user) => user.id === userId)
-      if (localStorage.getItem("userRegister")) {
-        usersFiltered.push(JSON.parse(localStorage.getItem("userRegister")))
-      }
-      return usersFiltered
+      setUsers((prev) => prev.concat(patients.allpatients))
+      setUsersSearched((prev) => prev.concat(patients.allpatients))
+    } else if (user.type === "pacient") {
+      setUsers(
+        patients.allpatients.filter((patient) => patient.user.id == userId)
+      )
+      setUsersSearched(
+        patients.allpatients.filter((patient) => patient.user.id == userId)
+      )
     }
-  })
+  }, [loadingPatients])
+
+  useEffect(() => {
+    if (loadingDoctors) return
+    console.log("doctors", doctors)
+    if (user.type === "admin") {
+      setUsers((prev) => prev.concat(doctors.alldoctors))
+      setUsersSearched((prev) => prev.concat(doctors.alldoctors))
+    } else if (user.type === "doctor") {
+      setUsers(doctors.alldoctors.filter((doctor) => doctor.user.id == userId))
+      setUsersSearched(
+        doctors.alldoctors.filter((doctor) => doctor.user.id == userId)
+      )
+    }
+  }, [loadingDoctors])
 
   //Manejo del submit en search
   const handleSubmit = (e) => {
     e.preventDefault()
     //creamos un array de todas las coincidencias de lo buscado y cambiamos el estado de usersSearched
-    const searched = usersState.filter(
+    const searched = users.filter(
       (doctor) =>
         doctor.name.toLowerCase().includes(search.toLowerCase()) ||
         doctor.surname.toLowerCase().includes(search.toLowerCase())
@@ -97,11 +100,15 @@ export default function Dashboard() {
         <ul className="dashboard_list-doctors">
           {usersSearched.length ? (
             usersSearched.map((doctor) => (
-              <Link to={`/Dashboard/${doctor.name}%20${doctor.surname}`}>
-                <li key={doctor.id} className="dashboard_card">
+              <Link key={doctor.user.id} to={`/Dashboard/${doctor.user.id}`}>
+                <li className="dashboard_card">
                   <span>
-                    {doctor.type === "doctor" ? "Dr." : "Pacient"} {doctor.name}{" "}
-                    {doctor.surname}
+                    {doctor.user.isDoctor
+                      ? "Dr."
+                      : doctor.user.isPatient
+                      ? "Pacient"
+                      : ""}{" "}
+                    {doctor.name} {doctor.surname}
                   </span>
                 </li>
               </Link>

@@ -7,7 +7,7 @@ import { Link } from "react-router-dom"
 // Componente de la seccion donde se habla un poco sobre los doctores y los turnos
 function Doctors() {
   return (
-    <section className="third-section">
+    <section className="third-section" id="doctors">
       <h3> MEET OUR DOCTORS </h3>
 
       <div className="third-section-container">

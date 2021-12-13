@@ -56,6 +56,19 @@
   margin: auto; 
 }
 
+@media (min-width: 768px){
+  .doctors-animate{
+    width: 400px;
+    height: 300px;
+    margin: auto;
+  }
+  .heart{
+    width: 300px;
+    height: 250px;
+    margin: auto;
+  }
+}
+
 
 @media (min-width: 992px) {
   .doctors-animate{

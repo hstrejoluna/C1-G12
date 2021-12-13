@@ -33,7 +33,9 @@ function Home() {
               <Icon icon="fluent:heart-pulse-20-filled" />
             </li>
           </ul>
-          <button className="button">read more</button>
+          <a className="button" href="#doctors">
+            read more
+          </a>
         </figure>
       </section>
       <Doctors />

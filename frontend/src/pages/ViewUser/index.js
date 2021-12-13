@@ -1,36 +1,90 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import { useParams } from "react-router"
 import { users, turns } from "../../dummybd"
 import "./index.css"
 import { Helmet } from "react-helmet"
+import { useLazyQuery } from "@apollo/client"
+import {
+  querySearchUser,
+  querySearchAppointmentsPacient,
+  querySearchAppointmentsDoctor,
+} from "../../config/queries"
+import { UserContext } from "../../context/UserContext"
 
 export default function ViewUser() {
-  const { userName } = useParams()
-  let [user] = useState(() => {
-    const userFiltered = users.filter(
-      (user) => `${user.name} ${user.surname}` === decodeURI(userName)
-    )
-    if (userFiltered.length) return userFiltered[0]
-    const userRegister = JSON.parse(localStorage.getItem("userRegister"))
-    return userRegister
-  })
-  const [appoints] = useState(() => {
-    const turnsFiltered = turns.filter(
-      (appoint) => appoint[user.type] === user.id
-    )
-    if (localStorage.getItem("newTurn")) {
-      turnsFiltered.push(JSON.parse(localStorage.getItem("newTurn")))
-    }
-    return turnsFiltered
-  })
+  const { changes, setChanges } = useContext(UserContext)
+  const [type, setType] = useState("")
+  const { idUserParam } = useParams()
+  const [findUser, result] = useLazyQuery(querySearchUser)
+  const [findAppointDoctor, doctorAppoint] = useLazyQuery(
+    querySearchAppointmentsDoctor
+  )
+  const [findAppointPacient, pacientAppoint] = useLazyQuery(
+    querySearchAppointmentsPacient
+  )
+  let [user, setUser] = useState(null)
+  const [appoints, setAppoints] = useState([])
 
-  console.log(user)
-  console.log(appoints)
+  useEffect(() => {
+    findUser({ variables: { idUser: idUserParam } })
+  }, [])
+
+  useEffect(() => {
+    if (result.loading || !result.data) return
+    console.log("user", result.data.searchuser[0])
+    setUser(result.data.searchuser[0])
+  }, [result.loading, result.data])
+
+  useEffect(() => {
+    if (!user) return
+    if (user.isDoctor) setType("doctor")
+    else if (user.isPatient) setType("pacient")
+  }, [user])
+
+  useEffect(() => {
+    if (type === "") return
+    changes && setChanges(false)
+    if (type === "pacient")
+      return findAppointPacient({
+        variables: { idPatient: parseInt(idUserParam) },
+      })
+    else
+      return findAppointDoctor({
+        variables: { idDoctor: parseInt(idUserParam) },
+      })
+  }, [type, changes])
+
+  useEffect(() => {
+    // if (!doctorAppoint.data || doctorAppoint.loading) return
+    // if (doctorAppoint.data === undefined) console.log(doctorAppoint)
+    if (!doctorAppoint.data) return
+    console.log("doctorAppoint", doctorAppoint.data.allappointfordoctor)
+    setAppoints(doctorAppoint.data.allappointfordoctor)
+  }, [doctorAppoint.data])
+
+  useEffect(() => {
+    if (!pacientAppoint.data) return
+    console.log("pacientAppoint", pacientAppoint.data.allappointforpatient)
+    setAppoints(pacientAppoint.data.allappointforpatient)
+  }, [pacientAppoint.data])
+
+  if (!user)
+    return (
+      <>
+        {" "}
+        <Helmet>
+          <title>Clinic | {idUserParam}</title>
+          <meta name="description" content={`turns of ${idUserParam}`} />
+        </Helmet>
+        <section className="user-view"></section>
+      </>
+    )
+
   return (
     <>
       <Helmet>
-        <title>Clinic | {userName}</title>
-        <meta name="description" content={`turns of ${userName}`} />
+        <title>Clinic | {idUserParam}</title>
+        <meta name="description" content={`turns of ${idUserParam}`} />
       </Helmet>
       <section className="user-view">
         <div className="user-view_container-name">
@@ -47,10 +101,14 @@ export default function ViewUser() {
           ) : (
             appoints.map((appoint) => (
               <li key={appoint.id}>
-                <span>pacient: {appoint.pacient}</span>
-                <span>doctor: {appoint.doctor}</span>
-                <span>date: {appoint.date}</span>
-                <span>time: {appoint.time}</span>
+                <span>
+                  pacient: {appoint.Patient.name} {appoint.Patient.surname}
+                </span>
+                <span>
+                  doctor: {appoint.Doctor.name} {appoint.Doctor.surname}
+                </span>
+                <span>date: {appoint.Date}</span>
+                <span>time: {appoint.Time}</span>
               </li>
             ))
           )}

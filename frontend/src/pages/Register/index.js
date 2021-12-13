@@ -3,22 +3,51 @@ import "./index.css"
 import { users } from "../../dummybd"
 import { Helmet } from "react-helmet"
 import { useHistory } from "react-router-dom"
-import { useContext } from "react"
+import { useContext, useEffect } from "react"
 import { UserContext } from "../../context/UserContext"
+import { useMutation } from "@apollo/client"
+import { queryCreatePatient } from "../../config/queries"
 
-async function register(info) {
-  const isUser = await users.find((userIn) => userIn.email === info.email)
-  const messageError = { err: "usuario no válido" }
-  if (isUser) return new Error(messageError)
-  const ids = await users.map(({ id }) => id)
-  const newUser = { id: Math.max(...ids) + 1, type: "pacient", ...info }
-  return newUser
-}
+// async function register(info) {
+//   const isUser = await users.find((userIn) => userIn.email === info.email)
+//   const messageError = { err: "usuario no válido" }
+//   if (isUser) return new Error(messageError)
+//   const ids = await users.map(({ id }) => id)
+//   const newUser = { id: Math.max(...ids) + 1, type: "pacient", ...info }
+//   return newUser
+// }
 
 export default function Register() {
+  const comingTurn = localStorage.getItem("comingTurn") ? true : false
+  const [createPacient, result] = useMutation(queryCreatePatient)
   const { isLogged, setIsLogged, userId, setUserId } = useContext(UserContext)
   const history = useHistory()
-  const comingTurn = localStorage.getItem("comingTurn") ? true : false
+  const newLocation = comingTurn ? "/Turn" : "/Dashboard"
+
+  useEffect(() => {
+    if (!result.data || result.loading) return
+    const { id, firstName, lastName, isPatient, isDoctor, isSysadmin } =
+      result.data.createpatient.user
+    console.log(result)
+    localStorage.setItem(
+      "user",
+      JSON.stringify({
+        name: firstName,
+        surname: lastName,
+        type: isPatient
+          ? "pacient"
+          : isDoctor
+          ? "doctor"
+          : isSysadmin
+          ? "admin"
+          : "",
+      })
+    )
+    localStorage.setItem("userId", JSON.stringify(id))
+    setUserId(id)
+    setIsLogged(true)
+    history.push(newLocation)
+  }, [result.data])
   return (
     <>
       <Helmet>
@@ -42,18 +71,21 @@ export default function Register() {
             medicalPlan: "none",
           }}
           onSubmit={(values, { setFieldErrors }) => {
-            register(values)
-              .then((res) => {
-                const newLocation = comingTurn ? "/Turn" : "/Dashboard"
-                console.log(res)
-                localStorage.setItem("userRegister", JSON.stringify(res))
-                localStorage.setItem("userId", res.id)
-                setUserId(res.id)
-                setIsLogged(true)
-                localStorage.removeItem("comingTurn")
-                return history.push(newLocation)
-              })
-              .catch((err) => console.log(err))
+            createPacient({
+              variables: {
+                name: values.name,
+                surname: values.surname,
+                password1: values.password,
+                password2: values.passwordConfirmation,
+                email: values.email,
+                dni: values.dni,
+                age: values.age,
+                gender: values.gender,
+                phone: values.phone,
+                social: values.socialWork,
+                plan: values.medicalPlan,
+              },
+            })
           }}
           validate={(values) => {
             const errors = {}
@@ -76,7 +108,7 @@ export default function Register() {
           }}
         >
           {({ errors, isSubmitting }) => (
-            <Form>
+            <Form className="form">
               <label htmlFor="email">Email</label>
               <Field name="email" type="email" />
               <label htmlFor="password">Password</label>
